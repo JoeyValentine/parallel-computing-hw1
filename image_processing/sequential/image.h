@@ -12,7 +12,7 @@ typedef struct _Image
 {
 	unsigned int n_row;
 	unsigned int n_col;
-	Pixel **arr;
+	Pixel *arr;
 } Image;
 
 int read_ppm_img(const char *file_name, Image *img_ptr);
