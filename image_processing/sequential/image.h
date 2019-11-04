@@ -15,8 +15,8 @@ typedef struct _Image
 	Pixel *arr;
 } Image;
 
-const int BYTES_PER_PIXEL = 3; 
-const int MAX_COLOR_VAL = 255;
+const unsigned int BYTES_PER_PIXEL = 3; 
+const unsigned int MAX_COLOR_VAL = 255;
 
 int read_ppm_img(const char *file_name, Image *img_ptr);
 int write_ppm_img(const char *file_name, const Image *img_ptr);
