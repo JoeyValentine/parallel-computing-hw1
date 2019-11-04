@@ -18,7 +18,7 @@ typedef struct _Image
 const unsigned int BYTES_PER_PIXEL = 3; 
 const unsigned int MAX_COLOR_VAL = 255;
 
-int read_ppm_img(const char *file_name, Image *img_ptr);
+int read_ppm_img(const char *file_name, Image **img_ptr);
 int write_ppm_img(const char *file_name, const Image *img_ptr);
 void free_img(Image *img_ptr);
 
