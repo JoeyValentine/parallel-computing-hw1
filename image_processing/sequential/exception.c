@@ -14,7 +14,7 @@ void print_exception_type(int exit_status, const char *file_name)
 			printf("ERROR: %s is truncated", file_name);
 			break;
 		case ERR_FILE:
-			printf("ERROR: Error opening %s", file_name);
+			printf("ERROR: Error opening or closing %s", file_name);
 			break;
 		case ERR_USE:
 			printf("Error: Usage %s <input-file> <flipped-file> "
