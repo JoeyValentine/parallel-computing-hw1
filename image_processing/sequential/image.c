@@ -90,6 +90,27 @@ int write_ppm_img(const char *file_name, const Image *img_ptr)
 	return 0;
 }
 
+int gen_same_shape_img(const Image *input_img_ptr, Image **output_img_ptr)
+{
+	unsigned int  n_row, n_col;
+	
+	n_row = input_img_ptr->n_row;
+	n_col = input_img_ptr->n_col;
+	
+	// memory allocation	
+	*output_img_ptr = malloc(sizeof(Image));
+	
+	if (*output_img_ptr == NULL)
+		return ERR_MEM;
+	
+	(*output_img_ptr)->n_col = n_col;
+	(*output_img_ptr)->n_row = n_row;
+
+	(*output_img_ptr)->arr = malloc(n_row * n_col * sizeof(Pixel));
+	
+	return 0;
+}
+
 void free_img(Image *img_ptr)
 {
 	free(img_ptr->arr);
