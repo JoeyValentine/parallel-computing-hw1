@@ -1,7 +1,7 @@
 #include "image.h"
 #include "img_proc_seq.h"
 
-int flip_seq(const Image *input_img_ptr, Image *output_img_ptr)
+void flip_seq(const Image *input_img_ptr, Image *output_img_ptr)
 {
 	// flip sequentially
 	int base_idx = 0;
@@ -15,11 +15,9 @@ int flip_seq(const Image *input_img_ptr, Image *output_img_ptr)
 		}
 		base_idx += n_col;
 	}
-
-	return 0;
 }
 
-int rgb2gray_seq(const Image *input_img_ptr, Image *output_img_ptr)
+void rgb2gray_seq(const Image *input_img_ptr, Image *output_img_ptr)
 {
 	// convert rgb to grayscale 
 	int idx = 0;
@@ -31,12 +29,10 @@ int rgb2gray_seq(const Image *input_img_ptr, Image *output_img_ptr)
 			++idx;
 		}
 	}
-
-	return 0;
 }
 
 
-int smoothing_seq(const Image *input_img_ptr, Image **output_img_ptr)
+void smoothing_seq(const Image *input_img_ptr, Image *output_img_ptr)
 {
 
 }
