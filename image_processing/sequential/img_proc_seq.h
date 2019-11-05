@@ -14,6 +14,6 @@ void flip_seq(const Image *input_img_ptr, Image *output_img_ptr);
 void rgb2gray_seq(const Image *input_img_ptr, Image *output_img_ptr);
 void smoothing_seq(const Image *input_img_ptr, Image *output_img_ptr);
 int gen_processed_img(const Image *input_img_ptr, const char *func_name,
-		      const char *file_name, func_t img_processing_func);
+			const char *file_name, func_t img_processing_func);
 
 #endif
