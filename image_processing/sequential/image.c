@@ -97,7 +97,6 @@ int gen_same_shape_img(const Image *input_img_ptr, Image **output_img_ptr)
 	n_row = input_img_ptr->n_row;
 	n_col = input_img_ptr->n_col;
 	
-	// memory allocation	
 	*output_img_ptr = malloc(sizeof(Image));
 	
 	if (*output_img_ptr == NULL)
@@ -107,6 +106,9 @@ int gen_same_shape_img(const Image *input_img_ptr, Image **output_img_ptr)
 	(*output_img_ptr)->n_row = n_row;
 
 	(*output_img_ptr)->arr = malloc(n_row * n_col * sizeof(Pixel));
+	
+	if ((*output_img_ptr)->arr == NULL)
+		return ERR_MEM;
 	
 	return 0;
 }
