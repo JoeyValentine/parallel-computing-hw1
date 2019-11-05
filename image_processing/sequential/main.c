@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	Image *flipped_img_ptr;
 	
 	start_time = get_cur_time();
-	flip_seq(input_img_ptr, &flipped_img_ptr);
+	flip_seq(input_img_ptr, flipped_img_ptr);
 	finish_time = get_cur_time();
 	elapsed_time = finish_time - start_time;
 	printf("Execution time of flip_seq() : %e\n", elapsed_time);
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	Image *gray_img_ptr;
 
 	start_time = get_cur_time();
-	rgb2gray_seq(input_img_ptr, &gray_img_ptr);
+	rgb2gray_seq(input_img_ptr, gray_img_ptr);
 	finish_time = get_cur_time();
 	elapsed_time = finish_time - start_time;
 	printf("Execution time of rgb2gray_seq() : %e\n", elapsed_time);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 	Image *smoothed_img_ptr;
 	
 	start_time = get_cur_time();
-	smoothing_seq(input_img_ptr, &smoothed_img_ptr);
+	smoothing_seq(input_img_ptr, smoothed_img_ptr);
 	finish_time = get_cur_time();
 	elapsed_time = finish_time - start_time;
 	printf("Execution time of smoothing_seq() : %e\n", elapsed_time);
