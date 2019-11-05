@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include "exception.h"
 #include "image.h"
+#include "timer.h"
 #include "img_proc_seq.h"
 
 int main(int argc, char *argv[])
 {
 	int exit_status = 0;
 	Image *input_img_ptr;
+	double start_time, finish_time, elapsed_time;
 
 	if (argc != 5)
 	{
@@ -25,8 +27,12 @@ int main(int argc, char *argv[])
 
 	// flip the image	
 	Image *flipped_img_ptr;
-
+	
+	start_time = get_cur_time();
 	exit_status = flip_seq(input_img_ptr, flipped_img_ptr);
+	finish_time = get_cur_time();
+	elapsed_time = finish_time - start_time;
+	printf("Execution time of flip_seq() : %e\n", elapsed_time);
 
 	if (!exit_status)
 	{
@@ -37,7 +43,11 @@ int main(int argc, char *argv[])
 	// reduce the image to grayscale
 	Image *gray_img_ptr;
 
+	start_time = get_cur_time();
 	exit_status = rgb2gray_seq(input_img_ptr, gray_img_ptr);
+	finish_time = get_cur_time();
+	elapsed_time = finish_time - start_time;
+	printf("Execution time of rgb2gray_seq() : %e\n", elapsed_time);
 
 	if (!exit_status)
 	{
@@ -48,7 +58,11 @@ int main(int argc, char *argv[])
 	// smooth the image
 	Image *smoothed_img_ptr;
 	
+	start_time = get_cur_time();
 	exit_status = smoothing_seq(input_img_ptr, gray_img_ptr);
+	finish_time = get_cur_time();
+	elapsed_time = finish_time - start_time;
+	printf("Execution time of smoothing_seq() : %e\n", elapsed_time);
 
 	if (!exit_status)
 	{
