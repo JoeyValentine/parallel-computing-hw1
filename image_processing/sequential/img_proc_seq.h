@@ -1,6 +1,9 @@
 #ifndef __IMG_PROC_SEQ__
 #define __IMG_PROC_SEQ__
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "image.h"
 
 #define N_FUNC 3
