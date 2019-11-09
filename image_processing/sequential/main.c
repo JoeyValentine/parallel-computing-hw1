@@ -8,7 +8,6 @@ int main(int argc, char *argv[])
 {
 	int exit_status = 0;
 	Image *input_img_ptr;
-	double start_time, finish_time, elapsed_time;
 
 	if (argc != 2 + N_FUNC)
 	{
