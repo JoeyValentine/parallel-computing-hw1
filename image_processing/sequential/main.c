@@ -1,9 +1,6 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include "exception.h"
 #include "image.h"
 #include "img_proc_seq.h"
-#include "timer.h"
 
 int main(int argc, char *argv[])
 {
