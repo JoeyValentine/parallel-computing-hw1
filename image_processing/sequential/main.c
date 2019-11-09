@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
 	}
 	
 	// read an image
-	exit_status = read_ppm_img(argv[1], input_img_ptr);
+	exit_status = read_ppm_img(argv[1], &input_img_ptr);
 	
-	if (!exit_status)
+	if (exit_status)
 	{
 		print_exception_type(exit_status, argv[1]);
 		exit(EXIT_FAILURE);
