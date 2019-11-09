@@ -71,26 +71,27 @@ void smoothing_seq(const Image *input_img_ptr, Image *output_img_ptr)
 int gen_processed_img(const Image *input_img_ptr, const char *func_name,
 			const char *file_name, func_t img_processing_func)
 {
+	int exit_status = 0;
 	Image *output_img_ptr;
 	double start_time, finish_time, elapsed_time;
 	
 	exit_status = gen_same_shape_img(input_img_ptr, &output_img_ptr);
 
-	if (!exit_status)
+	if (exit_status)
 	{
 		print_exception_type(exit_status, file_name);
 		exit(EXIT_FAILURE);
 	}
 
 	start_time = get_cur_time();
-	img_processing_func(input_img_ptr, flipped_img_ptr);
+	img_processing_func(input_img_ptr, output_img_ptr);
 	finish_time = get_cur_time();
 	elapsed_time = finish_time - start_time;
 	printf("Execution time of %s() : %e\n", func_name, elapsed_time);
 	
 	exit_status = write_ppm_img(file_name, output_img_ptr);
 	
-	if (!exit_status)
+	if (exit_status)
 	{
 		print_exception_type(exit_status, file_name);
 		exit(EXIT_FAILURE);
