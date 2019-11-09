@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "exception.h"
 
 void print_exception_type(int exit_status, const char *file_name)
