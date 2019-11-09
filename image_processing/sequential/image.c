@@ -3,6 +3,9 @@
 #include "exception.h"
 #include "image.h"
 
+const unsigned int BYTES_PER_PIXEL = 3; 
+const unsigned int MAX_COLOR_VAL = 255;
+
 int read_ppm_img(const char *file_name, Image **img_ptr)
 {
 	FILE *fp;
