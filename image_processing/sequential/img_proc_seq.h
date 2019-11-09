@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "exception.h"
 #include "image.h"
+#include "timer.h"
 
 #define N_FUNC 3
 
