@@ -18,7 +18,7 @@ void print_exception_type(int exit_status, const char *file_name)
 			printf("ERROR: Error opening or closing %s", file_name);
 			break;
 		case ERR_USE:
-			printf("Error: Usage %s <input-file> <flipped-file> "
+			printf("Usage: %s <input-file> <flipped-file> "
 				"<grayscale-file> <smoothed-file>\n", file_name);
 			break;
 	}
