@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall  
+CFLAGS = -Wall -std=c99
 
 TARGET = 20141510
 SRCS = $(wildcard *.c)
@@ -10,7 +10,7 @@ all : $(TARGET)
 $(TARGET) : $(OBJS)
 	$(CC) -o $@ $^
 
-$(OBJECTS) : %.o : %.c
+$(OBJS) : %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<  
   
 # Generating dependency files
