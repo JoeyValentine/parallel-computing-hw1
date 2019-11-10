@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
 	for (int i = 0; i < N_FUNC; ++i)
 	{
-		if (strcmp(func_names[i], func_names[2]) == 0)
+		if (strcmp(func_names[i], "smoothing_seq") == 0)
 			exit_status = gen_processed_img(padded_img_ptr, func_names[i], argv[2 + i], func_arr[i]);
 		else	
 			exit_status = gen_processed_img(input_img_ptr, func_names[i], argv[2 + i], func_arr[i]);
