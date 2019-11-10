@@ -6,6 +6,7 @@ int main(int argc, char *argv[])
 {
 	int exit_status = 0;
 	Image *input_img_ptr;
+	Image *padded_img_ptr;
 
 	if (argc != 2 + N_FUNC)
 	{
@@ -21,12 +22,21 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	exit_status = gen_padded_img(input_img_ptr, &padded_img_ptr);
+	
+	if (exit_status)
+	{
+		print_exception_type(exit_status, argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
 	for (int i = 0; i < N_FUNC; ++i)
 	{
-		int exit_status = 0;
-		printf("%s\n", argv[2 +i]);
-		exit_status = gen_processed_img(input_img_ptr, func_names[i], argv[2 + i], func_arr[i]);
-	
+		if (i != 3)
+			exit_status = gen_processed_img(input_img_ptr, func_names[i], argv[2 + i], func_arr[i]);
+		else	
+			exit_status = gen_processed_img(padded_img_ptr, func_names[i], argv[2 + i], func_arr[i]);
+
 		if (exit_status)
 		{
 			print_exception_type(exit_status, argv[1]);
@@ -35,6 +45,7 @@ int main(int argc, char *argv[])
 	}
 
 	free_img(input_img_ptr);
+	free_img(padded_img_ptr);
 
 	return 0;
 }
