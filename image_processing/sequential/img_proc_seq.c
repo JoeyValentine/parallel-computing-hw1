@@ -52,20 +52,38 @@ void rgb2gray_seq(const Image *input_img_ptr, Image *output_img_ptr)
 
 void smoothing_seq(const Image *input_img_ptr, Image *output_img_ptr)
 {
-	/*
 	// convert rgb to grayscale 
 	int idx = 0;
-	for (int i = 0; i < n_row; ++i)
+	unsigned int n_row = input_img_ptr->n_row;
+	unsigned int n_col = input_img_ptr->n_col;
+	unsigned int x_pos[9] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+	unsigned int y_pos[9] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
+	
+	for (int i = 1; i < n_row - 1; ++i)
 	{
-		for (int j = 0; j < n_col; ++j)
+		for (int j = 1; j < n_col - 1; ++j)
 		{
-			(*output_img_ptr)->arr[idx] = (input_img_ptr->arr[idx].r 
-							+ input_img_ptr->arr[idx].g
-							 + input_img_ptr->arr[idx].b) / 3;
+			unsigned int avg_r_val = 0;
+			unsigned int avg_g_val = 0;
+			unsigned int avg_b_val = 0;
+			
+			for (int k = 0; k < 9; ++k)
+			{
+				unsigned int new_i = i + y_pos[k];
+				unsigned int new_j = j + x_pos[k];
+
+				avg_r_val += input_img_ptr->arr[n_col * new_i + new_j].r;
+				avg_g_val += input_img_ptr->arr[n_col * new_i + new_j].g;
+				avg_b_val += input_img_ptr->arr[n_col * new_i + new_j].b;
+			}
+
+			output_img_ptr->arr[idx].r = avg_r_val / 9;
+			output_img_ptr->arr[idx].g = avg_g_val / 9;
+			output_img_ptr->arr[idx].b = avg_b_val / 9;
+
 			++idx;
 		}
 	}
-	*/
 }
 
 int gen_processed_img(const Image *input_img_ptr, const char *func_name,
