@@ -93,13 +93,8 @@ int write_ppm_img(const char *file_name, const Image *img_ptr)
 	return 0;
 }
 
-int gen_same_shape_img(const Image *input_img_ptr, Image **output_img_ptr)
+int gen_new_img(Image **output_img_ptr, unsigned int n_row, unsigned int n_col)
 {
-	unsigned int n_row, n_col;
-	
-	n_row = input_img_ptr->n_row;
-	n_col = input_img_ptr->n_col;
-	
 	*output_img_ptr = malloc(sizeof(Image));
 	
 	if (*output_img_ptr == NULL)
