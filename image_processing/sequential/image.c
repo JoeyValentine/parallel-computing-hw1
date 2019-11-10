@@ -150,7 +150,6 @@ int gen_padded_img(const Image *input_img_ptr, Image **output_img_ptr)
 		(*output_img_ptr)->arr[output_base_idx + i + 1] = input_img_ptr->arr[input_base_idx + i];
 	}
 
-/*
 	for (int i = 0; i < n_row; ++i)
 		for (int j = 0; j < n_col; ++j)
 			(*output_img_ptr)->arr[(n_col + 2) * (i + 1) + j + 1] = input_img_ptr->arr[n_col * i + j];
@@ -160,7 +159,7 @@ int gen_padded_img(const Image *input_img_ptr, Image **output_img_ptr)
 		(*output_img_ptr)->arr[(n_col + 2) * (i + 1)] = input_img_ptr->arr[n_col * i];
 		(*output_img_ptr)->arr[(n_col + 2) * (i + 1) + n_col + 1] = input_img_ptr->arr[n_col * i + n_col - 1];
 	}	
-*/
+
 	return 0;
 }
 
