@@ -91,9 +91,14 @@ int gen_processed_img(const Image *input_img_ptr, const char *func_name,
 {
 	int exit_status = 0;
 	Image *output_img_ptr;
+	unsigned int n_row = input_img_ptr->n_row;
+	unsigned int n_col = input_img_ptr->n_col;
 	double start_time, finish_time, elapsed_time;
 	
-	exit_status = gen_same_shape_img(input_img_ptr, &output_img_ptr);
+	if (strcmp(func_name, "smoothing_seq") == 0)
+		exit_status = gen_new_img(&output_img_ptr, n_row - 2, n_col -2);
+	else
+		exit_status = gen_new_img(&output_img_ptr, n_row, n_col);
 
 	if (exit_status)
 	{

@@ -2,6 +2,7 @@
 #define __IMG_PROC_SEQ__
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 
 #include "exception.h"
