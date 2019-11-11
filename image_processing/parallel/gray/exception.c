@@ -19,7 +19,7 @@ void print_exception_type(int exit_status, const char *file_name)
 			break;
 		case ERR_USE:
 			printf("Usage: mpirun -np <num processes> -hostfile "
-				"<hostfile> %s <input-ppm-file> <gray-scale-ppm-file>\n", file_name);
+				"<hostfile> %s <input-ppm-file> <grayscale-ppm-file>\n", file_name);
 			break;
 	}
 }
