@@ -1,3 +1,3 @@
 Build Process
-1. make
-2. mpirun -np <num processes> -hostfile <hostfile> %s <num integers>
+1. <code>make</code>
+2. <code>mpirun -np \<num processes\> -hostfile \<hostfile\> %s \<num integers\></code>
