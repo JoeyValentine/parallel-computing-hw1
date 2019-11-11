@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		printf("Process %d > Usage: mpirun -np <num processes> "
 			"-hostfile <hostfile> %s <num integers>\n", rank, argv[0]);	
 		MPI_Finalize();	
-		exit(-1);
+		exit(EXIT_FAILURE);
 	}
 	
 	int i;
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 			printf("Process %d > Usage: mpirun -np <num processes> "
 				"-hostfile <hostfile> %s <num integers>\n", rank, argv[0]);	
 			MPI_Finalize();	
-			exit(-1);
+			exit(EXIT_FAILURE);
 		}
 	
 	n_integers = atoi(argv[1]);
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Process %d > Memory allocation failed!\n", rank);
 		MPI_Finalize();	
-		exit(-1);
+		exit(EXIT_FAILURE);
 	}
 
 	send_buf = gen_random_ints_arr(LOWER, UPPER, n_integers);
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 		printf("Process %d > Memory allocation failed!\n", rank);
 		free(recv_buf);
 		MPI_Finalize();	
-		exit(-1);
+		exit(EXIT_FAILURE);
 	}
 
 	start_t = MPI_Wtime();
